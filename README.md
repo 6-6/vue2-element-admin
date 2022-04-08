@@ -9,12 +9,12 @@
 
 ```shell
 # 安装
-$ yarn add treer 
+yarn add treer 
 
 使用方式: treer [options]
 
 # 帮助
-$ treer --help
+treer --help
 
  -V, --version          output the version number # 版本号
  -d, --directory [dir]  Please specify a directory to generate structure tree (default: "/Users/wangping/self/node-exer") # 导出树的目录
@@ -37,26 +37,55 @@ D:\XPROJECT\PROGRAM\vue2-element-admin
 ├─LICENSE # LICENSE 开源软件协议
 ├─package.json # 配置项目所需的依赖和启动命令
 ├─README.md # 必读markdown文件
-├─yarn.lock # yarn依赖包
+├─yarn.lock # yarn依赖包lockfile
 ├─src
-|  ├─App.vue
-|  ├─main.js
-|  ├─views
+|  ├─App.vue # 根组件
+|  ├─main.js # 入口文件
+|  ├─views # 视图代码归类
 |  |   ├─About.vue
 |  |   └Home.vue
-|  ├─store
+|  ├─store # 全局状态管理归类
 |  |   └index.js
-|  ├─router
+|  ├─router # 路由归类
 |  |   └index.js
-|  ├─components
+|  ├─components # 组件归类
 |  |     └HelloWorld.vue
-|  ├─assets
+|  ├─assets # 资源（图片、字体等）归类
 |  |   └logo.png
-├─public
+├─public # 静态文件归类
 |   ├─favicon.ico
-|   └index.html
+|   └index.html # 主页，项目入口
 ```
 
+#### .browserslistrc
+**作用：**
+browserslist 是在不同的前端工具之间共用目标浏览器和 node 版本的配置工具。主要被以下工具使用：
+* Autoprefixer
+* Babel
+* post-preset-env
+* eslint-plugin-compat
+* stylelint-unsupported-browser-features
+* postcss-normalize
+
+举例来说，项目创建的时候，我们需要通过确认兼容哪些版本的浏览器。因为超过我们设定范围的浏览器版本，
+
+参考文章：[前端工程基础知识点--Browserslist (基于官方文档翻译）](https://juejin.cn/post/6844903669524086797)
+
+#### .editorconfig
+编辑器的配置
+
+#### .eslintrc.js
+ESlint编程规范
+
+#### babel.config.js
+Babel配置 
+
+#### LICENSE
+LICENSE 开源软件协议
+
+#### package.json
+
+#### README
 
 ### 1.2 Yarn or Npm
 首先安装node环境，node自带的npm包管理工具，不需单独安装。
