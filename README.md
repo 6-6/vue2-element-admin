@@ -152,7 +152,7 @@ editorconfig 跨IDE保持编码风格一致的配置文件。
 webstorm 自带支持 editorconfig ，而 vscode 需要下载插件 EditorConfig for VS Code 。修改下配置文件 ````indent_size = 2````，可以看到编辑器立即生效了，Tab缩进变为了2个空格。
 
 **(3) 配置：**
-```javascript
+```shell
 # 顶层editorconfig文件标识
 root = true
 
@@ -225,6 +225,8 @@ VSCode ESLint插件配置：
 }
 ```
 
+运行以下命令
+
 ```shell
 # 将error显示在终端中
 yarn lint
@@ -240,13 +242,42 @@ yarn lint:fix
 * [ESLint 开始，说透我如何在团队项目中基于 Vue 做代码校验](https://juejin.cn/post/6974223481181306888)
 
 #### babel.config.js
-Babel配置 
+**(1) 介绍：**
+Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
+下面列出的是 Babel 能为你做的事情：
+
+* 语法转换
+* 通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)
+* 源码转换 (codemods)
+
+**.babelrc和babel.config.js**
+1. ````babel.config.js```` 是一个项目级别的配置，一般有了 ````babel.config.js```` 就不会在去执行.babelrc的设置。
+2. ````.babelrc```` 的加载规则是按目录加载的，是只针对自己的代码。
+
+**(1) 配置：**
+以下是默认配置，preset 就是一组插件的集合。
+
+要理解它的作用，必须知道 Babel 并非拥有直接转换的能力，而是提供一个平台。让各类plugin 插件（本质就是JS代码），去转换响应的语法。例如依赖官方插件, 将ES6+转成ES5，例如:````@babel/plugin-transform-arrow-functions````。
+
+
+```javascript
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset'
+  ]
+}
+```
+
+**参考文章：**
+* [【建议改成】读完这篇你还不懂Babel我给你寄口罩](https://juejin.cn/post/6844904065223098381)
 
 #### LICENSE
 LICENSE 开源软件协议
 
 #### package.json
 
+**参考文章：**
+* [你真的了解package.json吗？来看看吧，这可能是最全的package解析](https://juejin.cn/post/6987179395714646024)
 #### README
 
 ### 1.3 ElementUI搭建
